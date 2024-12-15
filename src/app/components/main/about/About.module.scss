@@ -1,0 +1,127 @@
+@use "../../../../../styles/common.module" as *;
+
+.aboutSection {
+    background-color: $primary-blue;
+    .aboutContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .sectionTitle {
+            display: flex;
+            gap: 8px;
+            align-self: flex-start;
+            &__text {
+                background-color: $white;
+                color: $primary-blue;
+                border-radius: 50px;
+                padding: 4px 32px;
+                font-size: $size-24;
+                font-weight: 700;
+            }
+        }
+        .imgContainer__top {
+            align-self: flex-end;
+            .img__top {
+                animation: floatAnimation 5s ease-in-out infinite;
+                transition: box-shadow 0.5s ease-in-out;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 320px;
+                left: 65%;
+                width: 30%; 
+                height: 40px;
+                background: #89a4c2;
+                border-radius: 50%;
+                filter: blur(1px);
+                animation: shadowPulse 5s ease-in-out infinite;
+            }
+        }
+        .aboutTextContainer {
+            position: relative;
+            .aboutText {
+                position: absolute;
+                top: 48%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                color: $white;
+                font-weight: 500;
+                font-size: $size-16;
+                line-height: 2.8;
+                letter-spacing: .1em;
+                width: 75%;
+                z-index: 2;
+            }
+            .aboutBg {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%);
+                z-index: 1;
+            }
+            .aboutBg2 {
+                animation: rotateImage 80s linear infinite;
+                transform-origin: center;
+              }
+        }
+        .imgContainer__bottom {
+            align-self: flex-start;
+            position: relative;
+            .img__bottom {
+                animation: floatAnimation 5s ease-in-out 1.5s infinite;
+            }
+            &::after {
+                content: '';
+                position: absolute;
+                top: 340px;
+                left: 20%;
+                width: 70%; 
+                height: 40px;
+                background: #89a4c2;
+                border-radius: 50%;
+                filter: blur(1px);
+                animation: shadowPulse2 5s ease-in-out 1s infinite;
+            }
+        }
+    }
+    @keyframes floatAnimation {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-20px);
+        }
+    }
+
+    @keyframes shadowPulse {
+        0%, 100% {
+          width: 30%;
+          opacity: 0.2;
+        }
+        50% {
+          width: 27%;
+          opacity: 0.1;
+        }
+    }
+
+    @keyframes shadowPulse2 {
+        0%, 100% {
+          width: 70%;
+          opacity: 0.2;
+        }
+        50% {
+          width: 65%;
+          opacity: 0.1;
+        }
+    }
+
+    @keyframes rotateImage {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+    }
+}

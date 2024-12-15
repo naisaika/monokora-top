@@ -1,0 +1,81 @@
+@use "../../../../../styles/common.module" as *;
+
+@mixin closeBorder ($deg) {
+    content: '';
+    width: 20px;
+    height: 3px;
+    display: inline-block;
+    background-color: $white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate($deg);
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.menuBtnSection {
+    position: relative;
+    .menuBtnContainer {
+        position: fixed;
+        top: 50%; 
+        right: 0;
+        transform: translateY(-50%);
+        width: 50px;
+        height: 150px;
+        background-color: $pink; 
+        border-top-left-radius: 80px;
+        border-bottom-left-radius: 80px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); 
+        z-index: 10;
+        cursor: pointer;
+        &:hover {
+            border-top: solid 2px $white;
+            border-left: solid 2px $white;
+            border-bottom: solid 2px $white;
+        }
+        .menuBtn {
+            writing-mode: vertical-rl; 
+            text-orientation: upright;
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold; 
+            letter-spacing: 2px;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+        }
+    }
+    .slideNaviContainer {
+        position: fixed;
+        top: 6%;
+        right: 12%;
+        width: 300px;
+        height: auto;
+        z-index: 10;
+        .closeBtn {
+            background-color: $pink;
+            border-radius: 50%;
+            position: absolute;
+            width: 32px;
+            height: 32px;
+            right: 13%;
+            top: -20px;
+            cursor: pointer;
+            box-shadow: 2px 2px 0 0 rgba(255, 255, 255, 1);
+            &::before {
+                @include closeBorder(45deg);
+            }
+            &::after {
+                @include closeBorder(-45deg);
+            }
+        }
+    }
+}
+
+.hidden {
+    display: none;
+}

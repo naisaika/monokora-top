@@ -1,0 +1,61 @@
+@use "../../../../../styles/common.module" as *;
+
+.cubeCanvas {
+    width: 100%;
+    height: 100%;
+    display: block;
+}
+.whiteLogo {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    transform: translate(-42%, -50%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    .animatePath {
+        animation: drawAndFill 1.5s ease-in-out 3s forwards;
+    }
+        
+        @keyframes drawAndFill {
+        0% {
+            stroke-dashoffset: 150;
+            fill: none;
+            stroke-width: 1; 
+        }
+        30% {
+            stroke-dashoffset: 0;
+            fill: none;
+            stroke-width: 1;
+        }
+        100% {
+            stroke-dashoffset: 0;
+            fill: white;
+            stroke-width: 0;
+        }
+    }
+    .lineSvg {
+        margin-top: 10px;
+        .animateLine {
+            animation: lineDraw 1.5s ease-in-out 3s forwards;
+            stroke-dasharray: 150; /* 初期値の設定 */
+            stroke-dashoffset: 150; /* 初期値の設定 */
+            margin-bottom: 10px;
+        }
+            
+        @keyframes lineDraw {
+            0% {
+                stroke-dashoffset: 150; /* 最初は非表示 */
+            }
+            30% {
+                stroke-dashoffset: 0; /* 途中からアニメーション */
+            }
+            100% {
+                stroke-dashoffset: 0; /* 最終的に描画 */
+            }
+        }
+    }
+    
+}
+

@@ -1,0 +1,15 @@
+@use "../../../../styles/common.module" as *;
+
+.headerContainer {
+    width: 176px;
+    position: fixed;
+    top: 5%;
+    left: 20%;
+    z-index: 10;
+    .logoImg {
+        padding: 10px 32px;
+        background-color: $white;
+        border-radius: 50px;
+        width: 100%;
+    }
+}

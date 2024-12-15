@@ -1,0 +1,53 @@
+@use "../../../../../styles/common.module" as *;
+
+.scheduleSection {
+    background-color: $gray;
+    .scheduleBg {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    .scheduleContainer {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 208px 0;
+        .titleContainer {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+            .sectionTitle {
+                display: flex;
+                gap: 8px;
+                align-self: flex-start;
+                &__text {
+                    background-color: $primary-blue;
+                    color: $white;
+                    border-radius: 50px;
+                    padding: 4px 32px;
+                    font-size: $size-24;
+                    font-weight: 700;
+                }
+            }
+            .sectionText {
+                color: $black;
+                font-weight: 400;
+                align-self: flex-start;
+                margin: 32px 0 0 56px;
+                line-height: 1.8;
+            }
+        }
+        .scheduleList {
+            list-style: none;
+            &__item {
+                display: flex;
+            }
+            &__date {
+                width: 30%;
+            }
+            &__detail {
+                width: 70%;
+            }
+        }
+    }
+}
