@@ -38,23 +38,42 @@ export const Schedule = () => {
         <ul className={styles.scheduleList}>
           {EVENT_LISTS.map((list) => (
             <li key={list.id} className={styles.scheduleList__item}>
-              <div className={styles.scheduleList__date}>
-                <p>{list.date}</p>
-              </div>
-              <div className={styles.scheduleList__detail}>
-                <p>
-                  <span>{list.title}</span>
-                  <span>{list.subtitle}</span>
-                </p>
-                <div>
-                  <span>{list.status}</span>
-                  {list.link && <Link href={list.link}>{list.linktext}</Link>}
+              <div className={styles.scheduleList__container}>
+                <div className={styles.scheduleList__date}>
+                  <p className={styles.dateText}>{list.date}</p>
+                </div>
+                <div className={styles.scheduleList__detail}>
+                  <p className={styles.scheduleList__title}>
+                    <span className={styles.mainTitle}>{list.title}</span>
+                    <span className={styles.subTitle}>{list.subtitle}</span>
+                  </p>
+                  <div className={styles.scheduleList__status}>
+                    <span className={styles.status}>{list.status}</span>
+                    { list.link? (
+                      <Link href={list.link} className={styles.listLink}>
+                        <span>{list.linktext}</span>
+                        <Image src="/assets/img/icon/arrow.png" alt="矢印アイコン" width={16} height={16} priority/>
+                      </Link>
+                    ): <span className={styles.noLinkText}>{list.linktext}</span>
+                    }
+                  </div>
                 </div>
               </div>
+              {list.id === 0 && <div className={styles.listLine}></div>}
             </li>
           ))}
         </ul>
       </div>
+      <svg 
+        width="1439" 
+        height="218" 
+        viewBox="0 0 1439 218" 
+        fill="none" 
+        xmlns="http://www.w3.org/2000/svg"
+        className={styles.scheduleBg}
+      >
+        <path fillRule="evenodd" clipRule="evenodd" d="M0 37.6401L59.9576 49.6641C119.915 61.6881 239.83 85.7361 359.746 109.784C479.661 133.832 599.576 157.88 719.491 127.82C839.407 97.7601 959.322 13.5921 1079.24 1.5681C1199.15 -10.4559 1319.07 49.6641 1379.03 79.7241L1438.98 109.784V218H1379.03C1319.07 218 1199.15 218 1079.24 218C959.322 218 839.407 218 719.491 218C599.576 218 479.661 218 359.746 218C239.83 218 119.915 218 59.9576 218H0V37.6401Z" fill="#24456B"/>
+      </svg>
     </section>
   )
 }

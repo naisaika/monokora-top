@@ -35,7 +35,7 @@ export const EVENT_LISTS: eventListType[] = [
     },
     { 
         id: 1,
-        date: "2024年11月28日（木）",
+        date: "2024.11.28（木）",
         title: "モノづくりコラボフォーラム2024",
         subtitle: "～ NEXT製造業の交差点ークロスロードー ～",
         status: "開催終了",

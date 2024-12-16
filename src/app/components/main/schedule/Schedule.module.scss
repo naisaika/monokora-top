@@ -39,14 +39,100 @@
         }
         .scheduleList {
             list-style: none;
+            width: 100%;
+            padding: 40px 48px;
+            border: solid 2px $primary-blue;
+            border-radius: 10px;
+            background-color: $white;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+            margin: 80px 0 40px;
+            box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.2);
             &__item {
+                .listLine {
+                    width: 100%;
+                    height: 1.5px;
+                    background-color: $primary-blue;
+                    margin-top: 40px;
+                }
+            }
+            &__container {
                 display: flex;
+                gap: 24px;
             }
             &__date {
                 width: 30%;
+                padding: 32px;
+                background-color: $secondary-blue;
+                border-radius: 5px;
+                color: $white;
+                font-weight: 500;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-weight: 600;
+                letter-spacing: .1em;
+                font-size: $size-18;
+                box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3);
             }
             &__detail {
                 width: 70%;
+                background-color: $gray;
+                padding: 32px;
+                display: flex;
+                flex-direction: column;
+                gap: 24px;
+                border-radius: 5px;
+                box-shadow: 0 3px 15px 0 rgba(0, 0, 0, 0.3);
+            }
+            &__title {
+                display: flex;
+                flex-direction: column;
+                line-height: 2;
+                text-align: center;
+            }
+            .dateText {
+                margin: auto 0;
+            }
+            .mainTitle {
+                font-size: $size-20;
+                letter-spacing: .1em;
+                font-weight: 500;
+            }
+            .subTitle {
+                font-size: $size-18;
+            }
+            &__status {
+                align-self: flex-end;
+                display: flex;
+                align-items: center;
+                gap: 16px;
+                .status {
+                    color: $red;
+                    font-weight: 500;
+                    letter-spacing: .1em;
+                }
+                .listLink {
+                    background-color: $primary-blue;
+                    color: $white;
+                    display: flex;
+                    align-items: center;
+                    border-radius: 50px;
+                    padding: 8px 16px;
+                    text-decoration: none;
+                    gap: 8px;
+                    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+                }
+                .noLinkText {
+                    background-color: #919191;
+                    color: $white;
+                    border-radius: 50px;
+                    padding: 8px 16px;
+                    cursor: default;
+                    letter-spacing: .1em;
+                    box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+                }
             }
         }
     }

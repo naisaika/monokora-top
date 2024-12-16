@@ -4,6 +4,7 @@ import styles from './Main.module.scss'
 import { Top } from './top/Top'
 import { About } from './about/About'
 import { Schedule } from './schedule/Schedule'
+import { Archive } from './archive/Archive'
 
 export const Main = () => {
   return (
@@ -12,6 +13,7 @@ export const Main = () => {
         <Top/>
         <About/>
         <Schedule/>
+        <Archive/>
     </main>
   )
 }
