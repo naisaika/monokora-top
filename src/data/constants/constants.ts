@@ -1,5 +1,6 @@
 import { naviType } from "../type/type";
 import { eventListType } from "../type/type";
+import { basicDataType } from "../type/type";
 
 export const NAVI_LISTS: naviType[] = [
     { 
@@ -43,3 +44,39 @@ export const EVENT_LISTS: eventListType[] = [
         link: "https://www.factorx.jp/event/index.html"
     }
 ]
+
+
+export const BASIC_DATA:basicDataType[] = [
+    { 
+        id: 0, 
+        img: "/assets/img/archive/monokora2024.jpg", 
+        year: 2024, 
+        yeartext: "2024年",
+        link: "https://www.factorx.jp/event/index.html",
+        linktext: "アーカイブを見る" 
+    },
+    { 
+        id: 1, 
+        img: "/assets/img/archive/monokora2025.png", 
+        year: 2025, 
+        yeartext: "2025年",
+        link: "https://www.factorx.jp/event/index.html",
+        linktext: "アーカイブを見る" 
+    },
+    { 
+        id: 2, 
+        img: "/assets/img/archive/monokora2026.png", 
+        year: 2025, 
+        yeartext: "2025年",
+        link: "https://www.factorx.jp/event/index.html",
+        linktext: "アーカイブを見る" 
+    },
+    { 
+        id: 3, 
+        img: "/assets/img/archive/monokora2027.png", 
+        year: 2026, 
+        yeartext: "2026年",
+        link: "https://www.factorx.jp/event/index.html",
+        linktext: "アーカイブを見る" 
+    }
+];

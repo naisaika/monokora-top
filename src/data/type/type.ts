@@ -14,3 +14,12 @@ export interface eventListType {
     linktext: string;
     link?: string;
 }
+
+export interface basicDataType {
+    id: number;
+    img: string;
+    year: number;
+    yeartext: string;
+    link: string;
+    linktext: string;
+  }

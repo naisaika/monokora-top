@@ -2,7 +2,7 @@ import Image from 'next/image'
 import styles from './Schedule.module.scss'
 import { NAVI_LISTS, EVENT_LISTS } from '@/data/constants/constants'
 import classNames from 'classnames'
-import Link from 'next/link'
+import { ArchiveBtn } from '../../parts/archiveBtn/ArchiveBtn'
 
 const title = NAVI_LISTS[1]
 
@@ -49,11 +49,8 @@ export const Schedule = () => {
                   </p>
                   <div className={styles.scheduleList__status}>
                     <span className={styles.status}>{list.status}</span>
-                    { list.link? (
-                      <Link href={list.link} className={styles.listLink}>
-                        <span>{list.linktext}</span>
-                        <Image src="/assets/img/icon/arrow.png" alt="矢印アイコン" width={16} height={16} priority/>
-                      </Link>
+                    {list.link? (
+                      <ArchiveBtn link={list.link} linkText={list.linktext}/>
                     ): <span className={styles.noLinkText}>{list.linktext}</span>
                     }
                   </div>

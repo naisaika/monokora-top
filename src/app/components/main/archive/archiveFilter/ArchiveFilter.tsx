@@ -1,75 +1,77 @@
 "use client";
 
+import Image from "next/image";
 import { useState, useEffect } from "react";
-
-const basicData = [
-  { id: 1, icon: "icon1.png", year: 2024, month: 11 },
-  { id: 2, icon: "icon2.png", year: 2024, month: 12 },
-  { id: 3, icon: "icon3.png", year: 2023, month: 1 },
-];
-
+import styles from './ArchiveFilter.module.scss'
+import { basicDataType } from "@/data/type/type";
+import { BASIC_DATA } from "@/data/constants/constants";
+import { ArchiveBtn } from "@/app/components/parts/archiveBtn/ArchiveBtn";
 
 export const ArchiveFilter = () => {
 
-    const [filteredData, setFilteredData] = useState(basicData); // 初期状態で全データを表示
-    const [selectedYear, setSelectedYear] = useState(""); // 選択した年
-    const [selectedMonth, setSelectedMonth] = useState(""); // 選択した月
+    const [filteredData, setFilteredData] = useState(BASIC_DATA);
+    const [selectedYear, setSelectedYear] = useState("");
 
-      // 年月の選択が変わった際の絞り込み
   useEffect(() => {
-    if (selectedYear && selectedMonth) {
-      const filtered = basicData.filter(
+    if (selectedYear) {
+      const filtered = BASIC_DATA.filter(
         (item) =>
-          item.year === parseInt(selectedYear) &&
-          item.month === parseInt(selectedMonth)
+          item.year === parseInt(selectedYear)
       );
       setFilteredData(filtered);
     } else {
-      setFilteredData(basicData); // 年月が未選択の場合は全データを表示
+      setFilteredData(BASIC_DATA);
     }
-  }, [selectedYear, selectedMonth]);
+  }, [selectedYear]);
+
+  const groupedData = filteredData.reduce<Record<string, basicDataType[]>>((acc, item) => {
+    if (!acc[item.yeartext]) {
+      acc[item.yeartext] = [];
+    }
+    acc[item.yeartext].push(item);
+    return acc;
+  }, {});
 
   return (
-    <div>
-      <h1>年月でアイコンを絞り込む</h1>
-      <div>
-        {/* 年のドロップダウン */}
+    <div className={styles.filterSection}>
+      <div className={styles.filterContainer}>
         <select
             aria-label="年を選択"
             value={selectedYear}
             onChange={(e) => setSelectedYear(e.target.value)}
+            className={styles.filterYear}
         >
-            <option value="">年を選択</option>
-            <option value="2024">2024</option>
-            <option value="2023">2023</option>
-        </select>
-
-        {/* 月のドロップダウン */}
-        <select
-            aria-label="月を選択"
-            value={selectedMonth}
-            onChange={(e) => setSelectedMonth(e.target.value)}
-        >
-          <option value="">月を選択</option>
-          <option value="1">1月</option>
-          <option value="2">2月</option>
-          <option value="11">11月</option>
-          <option value="12">12月</option>
+            <option value="">閲覧したい年を選択</option>
+            <option value="2026">2026年</option>
+            <option value="2025">2025年</option>
+            <option value="2024">2024年</option>
         </select>
       </div>
-
-      {/* 絞り込んだデータの表示 */}
-      <div>
-        {filteredData.length > 0 ? (
-          filteredData.map((item) => (
-            <div key={item.id}>
-              <img src={`/${item.icon}`} alt={`icon-${item.id}`} />
+     
+        {Object.keys(groupedData).length > 0 ? (
+          Object.keys(groupedData).map((yeartext) => (
+            <div key={yeartext} className={styles.listContainer}>
+              <p className={styles.year}>{yeartext}</p>
+              <div>
+                {groupedData[yeartext].map((item) => (
+                  <div key={item.id} className={styles.listItem}>
+                    <Image
+                      src={item.img}
+                      alt={`icon-${item.id}`}
+                      width={480}
+                      height={120}
+                      priority
+                    />
+                    <ArchiveBtn link={item.link} linkText={item.linktext}/>
+                  </div>
+                ))}
+              </div>
             </div>
           ))
         ) : (
-          <p>該当するデータがありません。</p>
+          <p>該当するアーカイブがありません。</p>
         )}
-      </div>
+      
     </div>
   );
 }

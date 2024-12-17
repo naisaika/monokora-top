@@ -17,8 +17,8 @@ export const Archive = () => {
                 </h2>
                 <p className={styles.sectionText}>開催終了したモノコラの特設サイトをご覧いただけます。</p>
             </div>
+            <ArchiveFilter/>
         </div>
-        <ArchiveFilter/>
     </section>
   )
 }
