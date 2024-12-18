@@ -22,6 +22,7 @@ export const NAVI_LISTS: naviType[] = [
     { 
         id: 3, 
         img: "/assets/img/icon/contact.png",
+        img2: "/assets/img/icon/contact-blue.png",
         text: "お問い合わせ"
     }
 ]
@@ -55,28 +56,28 @@ export const BASIC_DATA:basicDataType[] = [
         link: "https://www.factorx.jp/event/index.html",
         linktext: "アーカイブを見る" 
     },
-    { 
-        id: 1, 
-        img: "/assets/img/archive/monokora2025.png", 
-        year: 2025, 
-        yeartext: "2025年",
-        link: "https://www.factorx.jp/event/index.html",
-        linktext: "アーカイブを見る" 
-    },
-    { 
-        id: 2, 
-        img: "/assets/img/archive/monokora2026.png", 
-        year: 2025, 
-        yeartext: "2025年",
-        link: "https://www.factorx.jp/event/index.html",
-        linktext: "アーカイブを見る" 
-    },
-    { 
-        id: 3, 
-        img: "/assets/img/archive/monokora2027.png", 
-        year: 2026, 
-        yeartext: "2026年",
-        link: "https://www.factorx.jp/event/index.html",
-        linktext: "アーカイブを見る" 
-    }
+    // { 
+    //     id: 1, 
+    //     img: "/assets/img/archive/monokora2025.png", 
+    //     year: 2025, 
+    //     yeartext: "2025年",
+    //     link: "https://www.factorx.jp/event/index.html",
+    //     linktext: "アーカイブを見る" 
+    // },
+    // { 
+    //     id: 2, 
+    //     img: "/assets/img/archive/monokora2026.png", 
+    //     year: 2025, 
+    //     yeartext: "2025年",
+    //     link: "https://www.factorx.jp/event/index.html",
+    //     linktext: "アーカイブを見る" 
+    // },
+    // { 
+    //     id: 3, 
+    //     img: "/assets/img/archive/monokora2027.png", 
+    //     year: 2026, 
+    //     yeartext: "2026年",
+    //     link: "https://www.factorx.jp/event/index.html",
+    //     linktext: "アーカイブを見る" 
+    // }
 ];

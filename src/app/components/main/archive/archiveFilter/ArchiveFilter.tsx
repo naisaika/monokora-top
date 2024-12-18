@@ -36,42 +36,39 @@ export const ArchiveFilter = () => {
     <div className={styles.filterSection}>
       <div className={styles.filterContainer}>
         <select
-            aria-label="年を選択"
-            value={selectedYear}
-            onChange={(e) => setSelectedYear(e.target.value)}
-            className={styles.filterYear}
+          aria-label="年を選択"
+          value={selectedYear}
+          onChange={(e) => setSelectedYear(e.target.value)}
+          className={styles.filterYear}
         >
-            <option value="">閲覧したい年を選択</option>
-            <option value="2026">2026年</option>
-            <option value="2025">2025年</option>
-            <option value="2024">2024年</option>
+          <option value="">閲覧したい年を選択</option>
+          {/* <option value="2026">2026年</option>
+          <option value="2025">2025年</option> */}
+          <option value="2024">2024年</option>
         </select>
       </div>
-     
         {Object.keys(groupedData).length > 0 ? (
           Object.keys(groupedData).map((yeartext) => (
             <div key={yeartext} className={styles.listContainer}>
               <p className={styles.year}>{yeartext}</p>
-              <div>
-                {groupedData[yeartext].map((item) => (
-                  <div key={item.id} className={styles.listItem}>
-                    <Image
-                      src={item.img}
-                      alt={`icon-${item.id}`}
-                      width={480}
-                      height={120}
-                      priority
-                    />
-                    <ArchiveBtn link={item.link} linkText={item.linktext}/>
-                  </div>
-                ))}
-              </div>
-            </div>
+              {groupedData[yeartext].map((item) => (
+                <div key={item.id} className={styles.listItem}>
+                  <Image
+                    src={item.img}
+                    alt={`icon-${item.id}`}
+                    width={480}
+                    height={120}
+                    priority
+                    className={styles.listItem__img}
+                  />
+                  <ArchiveBtn link={item.link} linkText={item.linktext}/>
+                </div>
+              ))}
+          </div>
           ))
         ) : (
           <p>該当するアーカイブがありません。</p>
         )}
-      
     </div>
   );
 }

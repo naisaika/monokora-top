@@ -15,6 +15,7 @@
             color: $primary-blue;
             padding: 16px 40px;
             font-size: $size-16;
+            font-weight: 600;
             border-radius: 10px;
             appearance: none;
             -webkit-appearance: none;
@@ -24,20 +25,38 @@
             background-repeat: no-repeat;
             background-position: right 40px center;
             background-size: 12px;
+            border: none;
+            outline: none;
+            cursor: pointer;
         }
     }
     .listContainer {
         display: flex;
         flex-direction: column;
         align-items: center;
+        gap: 24px;
+        margin-top: 72px;
         .year {
             background-color: $white;
-            width: 30%;
+            width: 20%;
             padding: 8px 40px;
             text-align: center;
             color: $primary-blue;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 10px;
+            letter-spacing: .1em;
+        }
+        .listItem {
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            background-color: $secondary-blue;
+            padding: 32px 80px;
+            border-radius: 10px;
+            &__img {
+                border-radius: 5px;
+                box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+            }
         }
     }
 
