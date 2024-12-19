@@ -6,24 +6,28 @@ export const NAVI_LISTS: naviType[] = [
     { 
         id: 0, 
         img: "/assets/img/icon/about.png",
-        text: "モノコラとは？"
+        text: "モノコラとは？",
+        link: "about"
     },
     { 
         id: 1, 
         img: "/assets/img/icon/schedule.png",
         img2: "/assets/img/icon/schedule-blue.png",
-        text: "イベント予定"
+        text: "イベント予定",
+        link: "schedule"
     },
     { 
         id: 2, 
         img: "/assets/img/icon/archive.png",
-        text: "交流会アーカイブ"
+        text: "交流会アーカイブ",
+        link: "archive"
     },
     { 
         id: 3, 
         img: "/assets/img/icon/contact.png",
         img2: "/assets/img/icon/contact-blue.png",
-        text: "お問い合わせ"
+        text: "お問い合わせ",
+        link: "contact"
     }
 ]
 

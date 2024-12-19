@@ -8,7 +8,7 @@ const title = NAVI_LISTS[2]
 
 export const Archive = () => {
   return (
-    <section className={styles.archiveSection}>
+    <section className={styles.archiveSection} id="archive">
         <div className={classNames(styles.wrapper, styles.archiveContainer)}>
             <div className={styles.titleContainer}>
                 <h2 className={styles.sectionTitle}>

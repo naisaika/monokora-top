@@ -7,7 +7,7 @@ const title = NAVI_LISTS[0]
 
 export const About = () => {
   return (
-    <section className={styles.aboutSection}>
+    <section className={styles.aboutSection} id="about">
         <div className={classNames(styles.wrapper, styles.aboutContainer)}>
             <div className={styles.imgContainer__top}>
                 <Image 

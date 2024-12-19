@@ -8,7 +8,7 @@ const title = NAVI_LISTS[1]
 
 export const Schedule = () => {
   return (
-    <section className={styles.scheduleSection}>
+    <section className={styles.scheduleSection} id="schedule">
       <svg 
         width="1440" 
         height="252" 
@@ -33,7 +33,16 @@ export const Schedule = () => {
               皆様のご参加をお待ちしております。
             </p>
           </div>
-          <Image src="/assets/img/schedule/schedule-img.png" alt="イベント予定画像" width={447} height={345} priority/>
+          <div className={styles.titleImgContainer}>
+            <Image 
+              src="/assets/img/schedule/schedule-img.png" 
+              alt="イベント予定画像" 
+              width={447} 
+              height={345} 
+              priority
+              className={styles.titleImg}
+            />
+          </div>
         </div>
         <ul className={styles.scheduleList}>
           {EVENT_LISTS.map((list) => (

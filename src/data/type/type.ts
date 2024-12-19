@@ -3,6 +3,7 @@ export interface naviType {
     img: string;
     img2?: string;
     text: string;
+    link: string;
 }
 
 export interface eventListType {

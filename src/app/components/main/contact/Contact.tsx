@@ -8,7 +8,7 @@ const title = NAVI_LISTS[3]
 
 export const Contact = () => {
   return (
-    <section className={styles.contactSection}>
+    <section className={styles.contactSection} id="contact">
         <svg 
             width="1440" 
             height="191" 
@@ -30,14 +30,26 @@ export const Contact = () => {
                 モノコラへのご意見・ご質問などがありましたら以下よりお気軽にお問い合わせください。
             </p>
             <div className={styles.contactContents}>
-                <Image 
-                    src="/assets/img/contact/contact-bg.svg" 
-                    alt="お問い合わせ背景" 
-                    width={892} 
-                    height={744} 
-                    priority
+                <svg 
+                    width="978" 
+                    height="1017" 
+                    viewBox="0 0 978 1017" 
+                    fill="none" 
+                    xmlns="http://www.w3.org/2000/svg"
                     className={styles.contactBg__middle}
-                />
+                >
+                    <path 
+                        fillRule="evenodd" 
+                        clipRule="evenodd" 
+                        d="M503.689 40.1168C599.379 31.2878 698.137 -27.7119 785.223 18.4645C874.225 65.6563 927.548 175.294 958.976 281.525C988.715 382.049 977.481 490.349 955.314 593.395C934.747 689.002 898.333 780.18 836.869 849.158C778.181 915.019 698.147 942.488 619.555 970.199C539.934 998.274 459.341 1027.78 377.289 1011.21C289.754 993.524 208.583 945.434 145.064 874.358C78.1665 799.502 27.8678 705.349 10.0677 600.297C-8.23031 492.306 0.191648 377.151 44.247 279.356C87.3372 183.704 164.267 112.459 249.925 67.8547C328.851 26.7567 417.24 48.0932 503.689 40.1168Z" 
+                        fill="#24456B" 
+                        stroke="#54779F"
+                        strokeLinecap="round"
+                        strokeWidth="15" 
+                        className={styles.animatedPath}
+                    >
+                    </path>
+                </svg>
                 <div className={styles.contactContents__section}>
                     <div className={styles.contactContents__container}>
                         <h3 className={styles.contactContents__title}>メールでお問い合わせ</h3>
@@ -68,18 +80,18 @@ export const Contact = () => {
                     </div>
                 </div>  
             </div>
+            <Link href="https://www.factorx.jp" className={styles.link}>
+                <span>Factor Xトップへ</span>
+                <Image 
+                    src="/assets/img/icon/arrow.png" 
+                    alt="矢印アイコン" 
+                    width={20} 
+                    height={20} 
+                    priority
+                    className={styles.linkIcon}
+                />
+            </Link>
         </div>
-        <Link href="https://www.factorx.jp" className={styles.link}>
-          <span>Factor Xトップへ</span>
-          <Image 
-              src="/assets/img/icon/arrow.png" 
-              alt="矢印アイコン" 
-              width={20} 
-              height={20} 
-              priority
-              className={styles.linkIcon}
-          />
-        </Link>
     </section>
   )
 }
