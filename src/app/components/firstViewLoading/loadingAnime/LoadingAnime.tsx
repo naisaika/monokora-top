@@ -130,8 +130,18 @@ export const LoadingAnime = () => {
     };
   }, []);
 
+  useEffect(() => {
+
+    const timer = setTimeout(() => {
+      document.body.style.overflow = "auto";
+
+    }, 4800);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <>
+    <div id="loading">
         <canvas ref={canvasRef} className={styles.cubeCanvas}></canvas>
         <div className={styles.whiteLogo}>
             <svg width="24" height="3" viewBox="0 0 24 1" fill="none" xmlns="http://www.w3.org/2000/svg" className={styles.lineSvg}>
@@ -227,7 +237,6 @@ export const LoadingAnime = () => {
                 />
             </svg>
         </div>
-    </>
-
+    </div>
   )
 }

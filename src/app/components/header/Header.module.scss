@@ -3,9 +3,12 @@
 .headerContainer {
     width: 176px;
     position: fixed;
-    top: 5%;
-    left: 20%;
+    top: 3%;
+    left: 10%;
     z-index: 10;
+    @include mq (1024px) {
+        left: 5%;
+    }
     .logoImg {
         padding: 10px 32px;
         background-color: $white;

@@ -11,6 +11,7 @@
     gap: 8px;
     box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
     &:hover {
+        outline: solid 2px $white;
         background-color: $hover-blue;
     }
 }

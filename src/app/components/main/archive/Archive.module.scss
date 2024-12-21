@@ -12,7 +12,11 @@
             .sectionTitle {
                 display: flex;
                 gap: 8px;
-                align-self: flex-start;
+                align-items: center;
+                padding: 0 24px;
+                @include mq (400px) {
+                    justify-content: center;
+                }
                 &__text {
                     background-color: $white;
                     color: $primary-blue;
@@ -26,10 +30,12 @@
                 color: $white;
                 font-weight: 400;
                 align-self: flex-start;
-                margin: 32px 0 0 56px;
+                margin: 32px 0 0 72px;
                 line-height: 1.8;
+                @include mq (400px) {
+                    margin: 32px 24px 0;
+                }
             }
         }
-
     }
 }

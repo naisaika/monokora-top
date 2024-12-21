@@ -33,7 +33,7 @@ export const Contact = () => {
                 <svg 
                     width="978" 
                     height="1017" 
-                    viewBox="0 0 978 1017" 
+                    viewBox="-15 -15 1008 1047"
                     fill="none" 
                     xmlns="http://www.w3.org/2000/svg"
                     className={styles.contactBg__middle}
@@ -72,7 +72,14 @@ export const Contact = () => {
                         <h3 className={styles.contactContents__title}>お電話でお問い合わせ</h3>
                         <div className={styles.contactContents__detail}>
                             <div className={styles.contactContents__tel}>
-                                <Image src="/assets/img/contact/tel.png" alt="電話アイコン" width={32} height={32} priority/>
+                                <Image 
+                                src="/assets/img/contact/tel.png" 
+                                alt="電話アイコン" 
+                                width={32} 
+                                height={32} 
+                                priority
+                                className={styles.contactContents__telIcon}
+                                />
                                 <p className={styles.contactContents__telnumber}>0569-21-5539</p>
                             </div>
                             <p className={styles.contactContents__text2}>平日9:00～17:00（土・日除く）</p>

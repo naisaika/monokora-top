@@ -36,6 +36,7 @@
             border-top: solid 2px $white;
             border-left: solid 2px $white;
             border-bottom: solid 2px $white;
+            background-color: $hover-pink;
         }
         .menuBtn {
             writing-mode: vertical-rl; 
@@ -62,10 +63,14 @@
             position: absolute;
             width: 32px;
             height: 32px;
-            right: 13%;
+            right: 0;
             top: -20px;
             cursor: pointer;
             box-shadow: 2px 2px 0 0 rgba(255, 255, 255, 1);
+            &:hover {
+                background-color: $hover-pink;
+                outline: solid 1px $white;
+            }
             &::before {
                 @include closeBorder(45deg);
             }

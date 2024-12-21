@@ -16,6 +16,7 @@ export const Top = () => {
     });
 
     const [showMenuBtn, setShowMenuBtn] = useState(false);
+    const [isMobile, setIsMobile] = useState(false);
     const naviRef = useRef(null);
 
     const [fadeInClass, setFadeInClass] = useState<string>("");
@@ -26,31 +27,57 @@ export const Top = () => {
         }
     }, [inView]);
 
-    useEffect(() =>{
+    useEffect(() => {
+        const handleResize = () => {
+            const isMobileWidth = window.innerWidth < 1024;
+            setIsMobile(isMobileWidth);
 
+            // モバイルの場合はmenuBtnを常に表示
+            if (isMobileWidth) {
+                setShowMenuBtn(true);
+            }
+        };
+
+        // 初期判定とリスナー登録
+        handleResize();
+        window.addEventListener("resize", handleResize);
+
+        return () => {
+            window.removeEventListener("resize", handleResize);
+        };
+    }, []);
+
+    useEffect(() => {
         const naviElement = naviRef.current;
-
+    
+        // モバイルの場合、menuBtnを初期表示
+        if (isMobile) {
+            setShowMenuBtn(true);
+            return; // モバイル時はIntersectionObserverを使わない
+        }
+    
+        // デスクトップ用のIntersectionObserver設定
         const observer = new IntersectionObserver(
             ([entry]) => {
                 const isVisible = entry.isIntersecting;
                 setShowMenuBtn(!isVisible);
             },
-            { threshold: 0.5}
+            { threshold: 0.5 }
         );
-
-        if(naviElement) {
+    
+        if (naviElement) {
             observer.observe(naviElement);
         }
-
-        return() => {
-            if(naviElement) {
-                observer.unobserve(naviElement)
+    
+        return () => {
+            if (naviElement) {
+                observer.unobserve(naviElement);
             }
-        }
-    }, [])
+        };
+    }, [isMobile]);
 
   return (
-    <section className={styles.topSection}>
+    <section className={styles.topSection} id="top">
         <svg 
             width="1440" 
             height="144" 
@@ -66,7 +93,7 @@ export const Top = () => {
                 fill="#24456B"
             />
         </svg>
-        <div ref={naviRef}>
+        <div ref={naviRef} className={isMobile ? styles.hidden : styles.visible}>
             <Navi/>
         </div>
         <div className={classNames(styles.wrapper, styles.topContainer)}>
@@ -95,14 +122,16 @@ export const Top = () => {
                     </div>
                 </h1>
             </div>
-            <Image 
-                src="/assets/img/top/top-img.png" 
-                alt="トップ画像" 
-                width={480} 
-                height={520} 
-                priority 
-                className={styles.topImg}
-            />
+            <div className={classNames(styles.topImgContainer, fadeInClass)} ref={ref}>
+                <Image 
+                    src="/assets/img/top/top-img.png" 
+                    alt="トップ画像" 
+                    width={480} 
+                    height={520} 
+                    priority 
+                    className={styles.topImg}
+                />
+            </div>
         </div>
         <MenuBtn showMenuBtn={showMenuBtn}/>
         <svg 

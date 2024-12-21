@@ -28,6 +28,13 @@
             border: none;
             outline: none;
             cursor: pointer;
+            &:hover {
+                outline: 1px solid $white;
+                font-weight: 700;
+            }
+            @include mq (480px) {
+                width: 85%;
+            }
         }
     }
     .listContainer {
@@ -36,27 +43,43 @@
         align-items: center;
         gap: 24px;
         margin-top: 72px;
+        width: 90%;
         .year {
             background-color: $white;
-            width: 20%;
-            padding: 8px 40px;
+            width: 25%;
+            padding: 8px;
             text-align: center;
             color: $primary-blue;
             font-weight: 700;
             border-radius: 10px;
             letter-spacing: .1em;
+            @include mq (640px) {
+                width: 40%;
+            }
         }
         .listItem {
             display: flex;
             align-items: center;
+            justify-content: center;
             gap: 40px;
             background-color: $secondary-blue;
-            padding: 32px 80px;
+            padding: 32px;
             border-radius: 10px;
             box-shadow: 5px 5px 0 0 rgb(255, 255, 255);
+            width: 100%;
+            @include mq (820px) {
+                flex-direction: column;
+            }
+            @include mq (500px) {
+                padding: 32px 16px;
+            }
             &__img {
                 border-radius: 5px;
                 box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.3);
+                @include mq (620px) {
+                    width: 100%;
+                    height: auto;
+                }
             }
         }
     }

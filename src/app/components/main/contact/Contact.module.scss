@@ -17,6 +17,7 @@
             display: flex;
             gap: 8px;
             align-self: flex-start;
+            padding: 0 24px;
             &__text {
                 background-color: $primary-blue;
                 color: $white;
@@ -25,25 +26,41 @@
                 font-size: $size-24;
                 font-weight: 700;
             }
+            @include mq (400px) {
+                align-self: center;
+                padding: 0;
+            }
         }
         .sectionText {
             color: $black;
             font-weight: 400;
             align-self: flex-start;
-            margin: 32px 0 0 56px;
+            margin: 32px 24px 0 72px;
             line-height: 1.8;
+            @include mq (400px) {
+                margin: 32px 24px 0;
+            }
         }
         .contactContents {
             margin: 64px auto 120px;
             position: relative;
             width: 100%;
+            @include mq (700px) {
+                background-color: $primary-blue;
+                border-radius: 30%;
+                outline: 10px solid $secondary-blue;
+            }
             .contactBg__middle {
                 width: 100%;
                 height: 100%;
+                filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
                 .animatedPath {
                     stroke-dasharray: 3200;
                     stroke-dashoffset: 3200;
                     animation: drawLine 30s ease-in-out infinite;
+                }
+                @include mq (700px) {
+                    display: none;
                 }
             }
             @keyframes drawLine {
@@ -63,7 +80,18 @@
                 display: flex;
                 flex-direction: column;
                 gap: 56px;
-            }
+                width: 50%;
+                @include mq (700px) {
+                    width: 70%;
+                    position: static;
+                    transform: translate(0, 0);
+                    margin: 0 auto;
+                    padding: 80px 0;
+                }
+                @include mq (400px) {
+                    width: 90%;
+                }
+             }
             &__container {
                 display: flex;
                 flex-direction: column;
@@ -78,12 +106,24 @@
                 font-size: $size-18;
                 font-weight: 500;
                 padding: 20px 40px;
+                filter: drop-shadow(5px 3px 0 rgba(255, 255, 255, 1));
+                @include mq (500px) {
+                    align-self: center;
+                }
             }
             &__detail {
                 background-color: $gray;
-                padding: 32px 108px;
+                padding: 32px;
                 border-radius: 50px;
                 width: 100%;
+                box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                @include mq (500px) {
+                    padding: 32px 16px;
+                }
             }
             &__link {
                 background-color: $pink;
@@ -97,8 +137,11 @@
                 gap: 8px;
                 cursor: pointer;
                 letter-spacing: .1em;
+                box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
+                justify-content: center;
                 &:hover {
                     background-color: $hover-pink;
+                    outline: solid 2px $white;
                 }
             }
             &__icon {
@@ -116,10 +159,19 @@
                 align-items: center;
                 gap: 8px;
             }
+            &__telIcon {
+                @include mq (450px) {
+                    width: 24px;
+                    height: 24px;
+                }
+            }
             &__telnumber {
                 color: $primary-blue;
                 font-size: $size-32;
                 font-weight: 600;
+                @include mq (450px) {
+                    font-size: $size-22;
+                }
             }
             &__text2 {
                 color: $black;
@@ -146,6 +198,7 @@
         box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
         &:hover {
             background-color: $hover-blue;
+            outline: solid 2px $white;
         }
         .linkIcon {
             margin-top: 3px;
