@@ -135,7 +135,7 @@ export const LoadingAnime = () => {
     const timer = setTimeout(() => {
       document.body.style.overflow = "auto";
 
-    }, 4800);
+    }, 6000);
 
     return () => clearTimeout(timer);
   }, []);

@@ -32,7 +32,7 @@
                 align-self: flex-start;
                 margin: 32px 0 0 72px;
                 line-height: 1.8;
-                @include mq (400px) {
+                @include mq (450px) {
                     margin: 32px 24px 0;
                 }
             }

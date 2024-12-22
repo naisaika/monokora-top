@@ -8,7 +8,6 @@ import { About } from './about/About'
 import { Schedule } from './schedule/Schedule'
 import { Archive } from './archive/Archive'
 import { Contact } from './contact/Contact'
-import { Footer } from '../footer/Footer'
 
 export const Main = () => {
 
@@ -24,7 +23,6 @@ export const Main = () => {
         <Schedule/>
         <Archive/>
         <Contact/>
-        <Footer/>
     </main>
   )
 }

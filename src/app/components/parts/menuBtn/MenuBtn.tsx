@@ -15,7 +15,8 @@ export const MenuBtn = ({showMenuBtn}: showMenuBtnPorps) => {
   const [clickMenuBtn, setClickMenuBtn] = useState(false);
 
   const handleCloseBtn = () => {
-    setClickCloseBtn(!clickCloseBtn);
+    setClickCloseBtn(true);
+    setClickMenuBtn(false);
   }
 
   const handleMenuBtn = () => {
@@ -35,7 +36,7 @@ export const MenuBtn = ({showMenuBtn}: showMenuBtnPorps) => {
             onClick={() => handleCloseBtn()}
           >
           </span>
-          <Navi/>
+          <Navi onLinkClick={handleCloseBtn} />
         </div>
     </div>
   )

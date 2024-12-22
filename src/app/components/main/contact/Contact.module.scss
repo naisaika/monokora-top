@@ -12,7 +12,7 @@
         flex-direction: column;
         align-items: center;
         padding: 208px 0;
-        margin-bottom: 280px;
+       
         .sectionTitle {
             display: flex;
             gap: 8px;
@@ -37,7 +37,7 @@
             align-self: flex-start;
             margin: 32px 24px 0 72px;
             line-height: 1.8;
-            @include mq (400px) {
+            @include mq (450px) {
                 margin: 32px 24px 0;
             }
         }
@@ -45,31 +45,41 @@
             margin: 64px auto 120px;
             position: relative;
             width: 100%;
-            @include mq (700px) {
-                background-color: $primary-blue;
-                border-radius: 30%;
-                outline: 10px solid $secondary-blue;
-            }
+            height: 1017px;
+            overflow: hidden;
             .contactBg__middle {
-                width: 100%;
-                height: 100%;
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%, -50%); 
                 filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
-                .animatedPath {
-                    stroke-dasharray: 3200;
-                    stroke-dashoffset: 3200;
-                    animation: drawLine 30s ease-in-out infinite;
-                }
-                @include mq (700px) {
-                    display: none;
-                }
+                z-index: 1;
             }
-            @keyframes drawLine {
-                from {
-                  stroke-dasharray: 3200;
-                  stroke-dashoffset: 3200;
+            .rotateIconContainer {
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                @include mq (900px) {
+                    margin-left: -13%;
                 }
-                to {
-                  stroke-dashoffset: 0;
+                @include mq (650px) {
+                    margin-left: -25%;
+                }
+                @include mq (400px) {
+                    margin-left: -50%;
+                }
+                .rotatingIcon {
+                    width: 50px;
+                    height: 50px;
+                    transform-origin: center center;
+                    transform: translate(-50%, -50%);
+                }
+                .rotatingIcon2 {
+                    width: 30px;
+                    height: 30px;
+                    transform-origin: center center;
+                    transform: translate(-50%, -50%);
                 }
             }
             &__section {
@@ -81,12 +91,9 @@
                 flex-direction: column;
                 gap: 56px;
                 width: 50%;
+                z-index: 2;
                 @include mq (700px) {
-                    width: 70%;
-                    position: static;
-                    transform: translate(0, 0);
-                    margin: 0 auto;
-                    padding: 80px 0;
+                    width: 75%;
                 }
                 @include mq (400px) {
                     width: 90%;
@@ -203,5 +210,10 @@
         .linkIcon {
             margin-top: 3px;
         }
+    }
+    .footerBg{
+        width: 100%;
+        height: 100%;
+        display: block;
     }
 }

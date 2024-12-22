@@ -29,16 +29,14 @@ export const Top = () => {
 
     useEffect(() => {
         const handleResize = () => {
-            const isMobileWidth = window.innerWidth < 1024;
+            const isMobileWidth = window.innerWidth < 1200;
             setIsMobile(isMobileWidth);
 
-            // モバイルの場合はmenuBtnを常に表示
             if (isMobileWidth) {
                 setShowMenuBtn(true);
             }
         };
 
-        // 初期判定とリスナー登録
         handleResize();
         window.addEventListener("resize", handleResize);
 
@@ -50,13 +48,11 @@ export const Top = () => {
     useEffect(() => {
         const naviElement = naviRef.current;
     
-        // モバイルの場合、menuBtnを初期表示
         if (isMobile) {
             setShowMenuBtn(true);
-            return; // モバイル時はIntersectionObserverを使わない
+            return;
         }
     
-        // デスクトップ用のIntersectionObserver設定
         const observer = new IntersectionObserver(
             ([entry]) => {
                 const isVisible = entry.isIntersecting;

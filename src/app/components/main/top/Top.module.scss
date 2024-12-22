@@ -107,7 +107,8 @@
             margin-top: 160px;
             opacity: 0;
             @include mq (930px) {
-                margin-top: 40px;
+                margin-top: 32px;
+                padding: 0 32px;
             }
             .topImg {
                 @include mq (600px) {
@@ -115,7 +116,6 @@
                     height: auto;
                 }
             }
-
         }
         .fadeIn {
             animation: fadeIn 1.5s ease-in 5s forwards;

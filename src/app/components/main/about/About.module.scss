@@ -15,8 +15,9 @@
             @include mq (850px) {
                 margin: 120px 0 0;
             }
-            @include mq (460px) {
+            @include mq (400px) {
                 justify-content: center;
+                align-self: center;
                 margin: 40px 0 0;
             }
             &__text {

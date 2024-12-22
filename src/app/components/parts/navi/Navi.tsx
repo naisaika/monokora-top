@@ -6,21 +6,23 @@ import styles from './Navi.module.scss'
 import { useEffect } from 'react';
 import Link from 'next/link';
 
-export const Navi = () => {
+interface NaviProps {
+  onLinkClick?: () => void;
+}
 
+export const Navi = ({ onLinkClick }: NaviProps) => {
   useEffect(() => {
-
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
     scrollLinks.forEach((scrollLink) => {
       scrollLink.addEventListener("click", (e) => {
         e.preventDefault();
-        
+
         const hrefLink = scrollLink.getAttribute("href");
-        if (!hrefLink) return;  
-  
+        if (!hrefLink) return;
+
         const targetContent = document.getElementById(hrefLink.replace("#", ""));
-        if (!targetContent) return; 
-  
+        if (!targetContent) return;
+
         const rectTop = targetContent.getBoundingClientRect().top;
         const positionY = window.scrollY;
         const target = rectTop + positionY;
@@ -28,9 +30,19 @@ export const Navi = () => {
           top: target,
           behavior: "smooth",
         });
+
+        if (onLinkClick) {
+          onLinkClick();
+        }
       });
     });
-  }, []);
+
+    return () => {
+      scrollLinks.forEach((scrollLink) =>
+        scrollLink.removeEventListener("click", () => {})
+      );
+    };
+  }, [onLinkClick]);
 
   return (
     <nav className={styles.naviSection}>
