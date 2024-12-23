@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import styles from './Schedule.module.scss'
-import { NAVI_LISTS, EVENT_LISTS } from '@/data/constants/constants'
+import { NAVI_LISTS } from '@/data/constants/constants'
 import classNames from 'classnames'
-import { ArchiveBtn } from '../../parts/archiveBtn/ArchiveBtn'
+import { ScheduleList } from './scheduleList/ScheduleList'
 
 const title = NAVI_LISTS[1]
 
@@ -44,31 +44,7 @@ export const Schedule = () => {
             />
           </div>
         </div>
-        <ul className={styles.scheduleList}>
-          {EVENT_LISTS.map((list) => (
-            <li key={list.id} className={styles.scheduleList__item}>
-              <div className={styles.scheduleList__container}>
-                <div className={styles.scheduleList__date}>
-                  <p className={styles.dateText}>{list.date}</p>
-                </div>
-                <div className={styles.scheduleList__detail}>
-                  <p className={styles.scheduleList__title}>
-                    <span className={styles.mainTitle}>{list.title}</span>
-                    <span className={styles.subTitle}>{list.subtitle}</span>
-                  </p>
-                  <div className={styles.scheduleList__status}>
-                    <span className={styles.status}>{list.status}</span>
-                    {list.link? (
-                      <ArchiveBtn link={list.link} linkText={list.linktext}/>
-                    ): <span className={styles.noLinkText}>{list.linktext}</span>
-                    }
-                  </div>
-                </div>
-              </div>
-              {list.id === 0 && <div className={styles.listLine}></div>}
-            </li>
-          ))}
-        </ul>
+        <ScheduleList/>
       </div>
       <svg 
         width="1439" 

@@ -9,6 +9,7 @@ export const LoadingAnime = () => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
+    
     const canvas = canvasRef.current;
 
     if (!canvas) return;
@@ -82,38 +83,45 @@ export const LoadingAnime = () => {
     }));
 
     let currentIndex = 0;
-    const rotationSpeed = 0.01;
+    const rotationSpeed = 2;
 
     const animate = () => {
-      requestAnimationFrame(animate);
-
-      if (currentIndex >= 0 && currentIndex < cubes.length) {
-        const state = animationStates[currentIndex];
-        const cube = cubes[currentIndex];
-
-        if (state.isAnimating) {
-          const deltaRotation = rotationSpeed;
-          state.currentRotation += deltaRotation;
-          cube.rotation.x += deltaRotation;
-
-          if (state.currentRotation >= Math.PI * 0.5) {
-            state.isAnimating = false;
-            state.currentRotation = 0;
-            currentIndex++;
-            if (currentIndex >= cubes.length) {
-              currentIndex = -1;
+      let lastTime = performance.now(); // 初回のタイムスタンプを取得
+    
+      const render = () => {
+        const currentTime = performance.now(); // 現在のタイムスタンプを取得
+        const deltaTime = (currentTime - lastTime) / 1000; // 経過時間（秒単位）
+        lastTime = currentTime; // 次のフレームのために更新
+    
+        if (currentIndex >= 0 && currentIndex < cubes.length) {
+          const state = animationStates[currentIndex];
+          const cube = cubes[currentIndex];
+    
+          if (state.isAnimating) {
+            const deltaRotation = rotationSpeed * deltaTime; // 回転速度に経過時間を乗算
+            state.currentRotation += deltaRotation;
+            cube.rotation.x += deltaRotation;
+    
+            if (state.currentRotation >= Math.PI * 0.5) {
+              // 回転が90度（π/2）に達したら次のキューブへ
+              state.isAnimating = false;
+              state.currentRotation = 0;
+              currentIndex++;
+              if (currentIndex >= cubes.length) {
+                currentIndex = -1; // 全てのキューブが回転完了
+              }
             }
+          } else {
+            state.isAnimating = true; // 回転がスタート
           }
         }
-
-        if (!state.isAnimating) {
-          state.isAnimating = true;
-        }
-      }
-
-      renderer.render(scene, camera);
+    
+        renderer.render(scene, camera); // レンダリング
+        requestAnimationFrame(render); // 次のフレームを呼び出す
+      };
+    
+      render(); // 初回の呼び出し
     };
-
     animate();
 
     const handleResize = () => {

@@ -1,6 +1,6 @@
-"use client";
+// "use client";
 
-import { useEffect } from 'react'
+// import { useEffect } from 'react'
 import { FirstViewLoading } from '../firstViewLoading/FirstViewLoading'
 import styles from './Main.module.scss'
 import { Top } from './top/Top'
@@ -11,9 +11,9 @@ import { Contact } from './contact/Contact'
 
 export const Main = () => {
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  // }, []);
 
   return (
     <main className={styles.main}>

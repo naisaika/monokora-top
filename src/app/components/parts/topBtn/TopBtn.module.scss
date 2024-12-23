@@ -1,0 +1,22 @@
+@use "../../../../../styles/common.module" as *;
+
+.scrollTop {
+    position: fixed;
+    bottom: 3%;
+    right: 1%;
+    border: none;
+    background-color: $pink;
+    color: $white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 50%;
+    padding: 8px 16px;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4); 
+    z-index: 3;
+    &:hover {
+        outline: solid 2px $white;
+        background-color: $hover-pink;
+    }
+}

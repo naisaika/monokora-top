@@ -1,0 +1,153 @@
+@use "../../../../../../styles/common.module" as *;
+
+.contactContents {
+    margin: 64px auto;
+    position: relative;
+    width: 100%;
+    height: 1017px;
+    overflow: hidden;
+    .contactBg__middle {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%); 
+        filter: drop-shadow(3px 3px 3px rgba(0, 0, 0, 0.3));
+        z-index: 1;
+    }
+    .rotateIconContainer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 2;
+        @include mq (930px) {
+            margin-left: -5%;
+        }
+        @include mq (900px) {
+            margin-left: -13%;
+        }
+        @include mq (650px) {
+            margin-left: -25%;
+        }
+        @include mq (400px) {
+            margin-left: -50%;
+        }
+        .rotatingIcon {
+            width: 50px;
+            height: 50px;
+            transform-origin: center center;
+            transform: translate(-50%, -50%);
+        }
+        .rotatingIcon2 {
+            width: 30px;
+            height: 30px;
+            transform-origin: center center;
+            transform: translate(-50%, -50%);
+        }
+    }
+    &__section {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: flex;
+        flex-direction: column;
+        gap: 56px;
+        width: 50%;
+        z-index: 2;
+        @include mq (700px) {
+            width: 75%;
+        }
+        @include mq (400px) {
+            width: 90%;
+        }
+     }
+    &__container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+    }
+    &__title {
+        border-top-left-radius: 50px;
+        border-bottom-right-radius: 50px;
+        background-color: $secondary-blue;
+        color: $white;
+        font-size: $size-18;
+        font-weight: 500;
+        padding: 20px 40px;
+        filter: drop-shadow(5px 3px 0 rgba(255, 255, 255, 1));
+        @include mq (500px) {
+            align-self: center;
+        }
+    }
+    &__detail {
+        background-color: $gray;
+        padding: 32px;
+        border-radius: 50px;
+        width: 100%;
+        box-shadow: 3px 3px 10px 0 rgba(0, 0, 0, 0.3);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        @include mq (500px) {
+            padding: 32px 16px;
+        }
+    }
+    &__link {
+        background-color: $pink;
+        color: $white;
+        padding: 16px 32px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        cursor: pointer;
+        letter-spacing: .1em;
+        box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.3);
+        justify-content: center;
+        &:hover {
+            background-color: $hover-pink;
+            outline: solid 2px $white;
+        }
+    }
+    &__icon {
+        margin-top: 2px;
+    }
+    &__text {
+        color: $black;
+        font-size: $size-14;
+        text-align: center;
+        margin-top: 24px;
+        font-weight: 500;
+    }
+    &__tel {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+    }
+    &__telIcon {
+        @include mq (450px) {
+            width: 24px;
+            height: 24px;
+        }
+    }
+    &__telnumber {
+        color: $primary-blue;
+        font-size: $size-32;
+        font-weight: 600;
+        @include mq (450px) {
+            font-size: $size-22;
+        }
+    }
+    &__text2 {
+        color: $black;
+        font-size: $size-14;
+        text-align: center;
+        margin-top: 16px;
+        padding-left: 32px;
+        font-weight: 500;
+    }
+}

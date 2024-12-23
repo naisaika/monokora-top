@@ -11,6 +11,7 @@ interface NaviProps {
 }
 
 export const Navi = ({ onLinkClick }: NaviProps) => {
+  
   useEffect(() => {
     const scrollLinks = document.querySelectorAll('a[href^="#"]');
     scrollLinks.forEach((scrollLink) => {

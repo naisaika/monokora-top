@@ -26,3 +26,11 @@ body {
     background-color: #54779F;
     border-radius: 5px;
 }
+
+@font-face {
+	font-family: 'Noto Sans JP';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap');
+}
