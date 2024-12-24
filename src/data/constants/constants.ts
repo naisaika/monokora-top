@@ -5,27 +5,27 @@ import { basicDataType } from "../type/type";
 export const NAVI_LISTS: naviType[] = [
     { 
         id: 0, 
-        img: "/assets/img/icon/about.png",
+        img: "https://www.factorx.jp/event/assets/img/icon/about.png",
         text: "モノコラとは？",
         link: "about"
     },
     { 
         id: 1, 
-        img: "/assets/img/icon/schedule.png",
-        img2: "/assets/img/icon/schedule-blue.png",
+        img: "https://www.factorx.jp/event/assets/img/icon/schedule.png",
+        img2: "https://www.factorx.jp/event/assets/img/icon/schedule-blue.png",
         text: "イベント予定",
         link: "schedule"
     },
     { 
         id: 2, 
-        img: "/assets/img/icon/archive.png",
+        img: "https://www.factorx.jp/event/assets/img/icon/archive.png",
         text: "交流会アーカイブ",
         link: "archive"
     },
     { 
         id: 3, 
-        img: "/assets/img/icon/contact.png",
-        img2: "/assets/img/icon/contact-blue.png",
+        img: "https://www.factorx.jp/event/assets/img/icon/contact.png",
+        img2: "https://www.factorx.jp/event/assets/img/icon/contact-blue.png",
         text: "お問い合わせ",
         link: "contact"
     }
@@ -46,7 +46,7 @@ export const EVENT_LISTS: eventListType[] = [
         subtitle: "～ NEXT製造業の交差点ークロスロードー ～",
         status: "開催終了",
         linktext: "アーカイブを見る",
-        link: "https://www.factorx.jp/event/index.html"
+        link: "https://www.factorx.jp/event/event241128/index.html"
     }
 ]
 
@@ -54,10 +54,10 @@ export const EVENT_LISTS: eventListType[] = [
 export const BASIC_DATA:basicDataType[] = [
     { 
         id: 0, 
-        img: "/assets/img/archive/monokora2024.jpg", 
+        img: "https://www.factorx.jp/event/assets/img/archive/monokora2024.jpg", 
         year: 2024, 
         yeartext: "2024年",
-        link: "https://www.factorx.jp/event/index.html",
+        link: "https://www.factorx.jp/event/event241128/index.html",
         linktext: "アーカイブを見る" 
     },
     // { 

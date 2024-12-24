@@ -9,27 +9,32 @@
     position: absolute;
     top: 58%;
     left: 50%;
-    transform: translate(-45%, -50%);
+    transform: translate(-43%, -50%);
     color: #fff;
     display: flex;
     align-items: center;
     gap: 10px;
     .animatePath {
         animation: drawAndFill 1.5s ease-in-out 3s forwards;
+        fill: none;
+        stroke: white;
     }
         
         @keyframes drawAndFill {
         0% {
+            -webkit-stroke-dashoffset: 150;
             stroke-dashoffset: 150;
             fill: none;
             stroke-width: 1; 
         }
-        30% {
+        70% {
+            -webkit-stroke-dashoffset: 0;
             stroke-dashoffset: 0;
             fill: none;
             stroke-width: 1;
         }
         100% {
+            -webkit-stroke-dashoffset: 0;
             stroke-dashoffset: 0;
             fill: white;
             stroke-width: 0;

@@ -9,6 +9,10 @@
     .filterContainer {
         width: 100%;
         text-align: center;
+         position: relative;
+        &.open .dropdownMenu {
+            display: block;
+        }
         .filterYear {
             width: 60%;
             background-color: $gray;
@@ -34,6 +38,37 @@
             }
             @include mq (480px) {
                 width: 85%;
+            }
+        }
+        .dropdownMenu {
+            position: absolute;
+            top: 100px;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            border-radius: 10px;
+            width: 60%;
+            margin: 0;
+            padding: 0;
+            list-style: none;
+            border: solid 1px $secondary-blue;
+            background-color: $gray;
+            max-height: 150px;
+            overflow-y: auto;
+            z-index: 1000;
+            display: none;
+            @include mq (480px) {
+                width: 85%;
+            }
+            &__item {
+                padding: 10px;
+                cursor: pointer;
+                border-top: solid 1px $secondary-blue;
+                color: $primary-blue;
+                font-weight: 500;
+                &:hover {
+                    background-color: $secondary-blue;
+                    color: $white;
+                }
             }
         }
     }
@@ -83,5 +118,4 @@
             }
         }
     }
-
 }

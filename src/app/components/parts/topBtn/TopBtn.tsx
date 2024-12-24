@@ -12,7 +12,7 @@ export const TopBtn = () => {
 
   return (
     <button type="button" className={styles.scrollTop} onClick={handleScrollTop}>
-        <Image src="/assets/img/icon/arrow-top.png" alt="戻るアイコン" width={24} height={24} priority/>
+        <Image src="https://www.factorx.jp/event/assets/img/icon/arrow-top.png" alt="戻るアイコン" width={24} height={24} priority/>
         <span>TOP</span>
     </button>
   )

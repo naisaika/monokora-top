@@ -123,6 +123,7 @@ export const LoadingAnime = () => {
       render(); // 初回の呼び出し
     };
     animate();
+    
 
     const handleResize = () => {
       renderer.setSize(window.innerWidth, window.innerHeight);
@@ -139,11 +140,27 @@ export const LoadingAnime = () => {
   }, []);
 
   useEffect(() => {
+    const paths = document.querySelectorAll(`.${styles.animatePath}`) as NodeListOf<SVGPathElement>;
+    paths.forEach((path) => {
+        path.style.strokeDasharray = path.getTotalLength().toString();
+        path.style.strokeDashoffset = path.getTotalLength().toString();
+        setTimeout(() => {
+            path.style.transition = "stroke-dashoffset 1.5s ease-in-out";
+            path.style.strokeDashoffset = "0";
+            setTimeout(() => {
+                path.style.fill = "white"; // 塗りつぶしを明示的に適用
+            }, 1000); // アニメーション終了後に塗りつぶしを適用
+        }, 3000); // アニメーション開始の遅延
+    });
+}, []);
+
+  useEffect(() => {
 
     const timer = setTimeout(() => {
-      document.body.style.overflow = "auto";
 
-    }, 6000);
+      window.scrollTo(0, 0);
+
+    }, 4800);
 
     return () => clearTimeout(timer);
   }, []);

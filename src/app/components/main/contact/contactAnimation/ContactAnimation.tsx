@@ -11,63 +11,54 @@ export const ContactAnimation = () => {
         const path = document.querySelector("#motionPath") as SVGPathElement | null;
         const icon = document.querySelector(`.${styles.rotatingIcon}`) as HTMLElement | null;
         const icon2 = document.querySelector(`.${styles.rotatingIcon2}`) as HTMLElement | null;
-    
-        if (path && icon) {
-            const totalLength = path.getTotalLength();
-            let start = 0;
-            const scale = 0.94;
-            const rotationSpeed = 0.5; // 回転速度
-    
-            const animate = () => {
-                const progress = (start % totalLength) / totalLength;
-                const point = path.getPointAtLength(progress * totalLength);
-                const offsetX = 25;
-    
-                // 軌道を縮小
-                const scaledX = point.x * scale + offsetX;
-                const scaledY = point.y * scale;
-    
-                // 回転角度を計算
-                const rotation = start * rotationSpeed;
-    
-                // アニメーション実行
-                icon.style.transform = `translate(${scaledX}px, ${scaledY}px) rotate(${rotation}deg)`;
-    
-                start += 0.3; // アニメーション速度調整
-                requestAnimationFrame(animate);
+      
+        if (path) {
+          const totalLength = path.getTotalLength();
+          const scale = 0.94;
+          const rotationSpeed = 0.5; // 回転速度（1秒あたりの回転角度）
+      
+          const animateIcon = (
+            iconElement: HTMLElement | null,
+            offsetMultiplier: number,
+            reverseRotation: boolean
+          ) => {
+            if (!iconElement) return;
+      
+            let start = 0; // 初期位置
+            let lastTime = performance.now(); // 初期タイムスタンプ
+      
+            const animate = (currentTime: number) => {
+              const deltaTime = (currentTime - lastTime) / 1000; // 秒単位の経過時間
+              lastTime = currentTime;
+      
+              const progress = (start % totalLength) / totalLength; // 0～1の進行度
+              const point = path.getPointAtLength(progress * totalLength); // 軌道上のポイントを取得
+              const offsetX = 25 * offsetMultiplier;
+      
+              // 軌道を縮小
+              const scaledX = point.x * scale + offsetX;
+              const scaledY = point.y * scale;
+      
+              // 回転角度を計算（進む方向を逆転させる場合は符号を変える）
+              const rotation = start * rotationSpeed * (reverseRotation ? -1 : 1);
+      
+              // アニメーション実行
+              iconElement.style.transform = `translate(${scaledX}px, ${scaledY}px) rotate(${rotation}deg)`;
+      
+              // アニメーション速度を調整
+              start += deltaTime * 40;
+      
+              requestAnimationFrame(animate); // 次のフレームをリクエスト
             };
-    
-            animate();
+      
+            requestAnimationFrame(animate); // 初回の呼び出し
+          };
+      
+          // 各アイコンに対してアニメーションを適用
+          animateIcon(icon, 1, false); // 正方向
+          animateIcon(icon2, 0, true); // 逆方向
         }
-
-        if (path && icon2) {
-            const totalLength = path.getTotalLength();
-            let start = 0;
-            const scale = 0.94;
-            const rotationSpeed = 0.5; // 回転速度
-    
-            const animate = () => {
-                const progress = (start % totalLength) / totalLength;
-                const point = path.getPointAtLength(progress * totalLength);
-                const offsetX = 0;
-    
-                // 軌道を縮小
-                const scaledX = point.x * scale + offsetX;
-                const scaledY = point.y * scale;
-    
-                // 回転角度を計算
-                const rotation = -start * rotationSpeed;
-    
-                // アニメーション実行
-                icon2.style.transform = `translate(${scaledX}px, ${scaledY}px) rotate(${rotation}deg)`;
-    
-                start += 0.3; // アニメーション速度調整
-                requestAnimationFrame(animate);
-            };
-    
-            animate();
-        }
-    }, []);
+      }, []);
 
   return (
     <div className={styles.contactContents}>
@@ -161,7 +152,7 @@ export const ContactAnimation = () => {
                 <Link href="https://www.factorx.jp/inquire" target="_blank" className={styles.contactContents__link}>
                     <span>お問い合わせはこちら</span>
                     <Image 
-                        src="/assets/img/icon/arrow.png" 
+                        src="https://www.factorx.jp/event/assets/img/icon/arrow.png" 
                         alt="矢印アイコン" 
                         width={20} 
                         height={20} 
@@ -177,7 +168,7 @@ export const ContactAnimation = () => {
             <div className={styles.contactContents__detail}>
                 <div className={styles.contactContents__tel}>
                     <Image 
-                    src="/assets/img/contact/tel.png" 
+                    src="https://www.factorx.jp/event/assets/img/contact/tel.png" 
                     alt="電話アイコン" 
                     width={32} 
                     height={32} 

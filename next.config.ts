@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   // output: 'export',
   // basePath: "/event", // サイトが配置されるサブディレクトリを指定
-  // assetPrefix: "https://www-dev.factorx.jp/event", // 静的ファイルのベースパスを指定
+  // assetPrefix: "https://www.factorx.jp/event/", // 静的ファイルのベースパスを指定
   images: {
     unoptimized: true,
       remotePatterns: [

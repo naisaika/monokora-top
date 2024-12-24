@@ -35,7 +35,7 @@ export const Schedule = () => {
           </div>
           <div className={styles.titleImgContainer}>
             <Image 
-              src="/assets/img/schedule/schedule-img.png" 
+              src="https://www.factorx.jp/event/assets/img/schedule/schedule-img.png" 
               alt="イベント予定画像" 
               width={447} 
               height={345} 

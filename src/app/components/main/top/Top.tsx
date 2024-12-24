@@ -16,7 +16,7 @@ export const Top = () => {
   });
 
   const { ref: topRef, inView: isTopInView } = useInView({
-    threshold: 0.1, // topセクションが10%表示されているか
+    threshold: 0.1,
   });
 
   const [showMenuBtn, setShowMenuBtn] = useState(false);
@@ -120,7 +120,7 @@ export const Top = () => {
         <div className={classNames(styles.wrapper, styles.topContainer)} ref={topRef}>
             <div className={classNames(styles.titleSection, fadeInClass)} ref={ref}>
                 <p className={styles.subTitle}>
-                    <Image src="/assets/img/top/top-logo.png" alt="logo画像" width={132} height={36} priority className={styles.subTitle__logo}/>
+                    <Image src="https://www.factorx.jp/event/assets/img/top/top-logo.png" alt="logo画像" width={132} height={36} priority className={styles.subTitle__logo}/>
                     <span className={styles.subTitle__text}>企業交流会</span>
                 </p>
                 <h1 className={styles.title}>
@@ -145,7 +145,7 @@ export const Top = () => {
             </div>
             <div className={classNames(styles.topImgContainer, fadeInClass)} ref={ref}>
                 <Image 
-                    src="/assets/img/top/top-img.png" 
+                    src="https://www.factorx.jp/event/assets/img/top/top-img.png" 
                     alt="トップ画像" 
                     width={480} 
                     height={520} 

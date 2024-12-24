@@ -27,7 +27,9 @@ export const MenuBtn = ({showMenuBtn}: showMenuBtnPorps) => {
   return (
     <div className={classNames(styles.menuBtnSection, { [styles.hidden]: !showMenuBtn })}>
         <div className={styles.menuBtnContainer}>
-          <button type="button" className={styles.menuBtn} onClick={() => handleMenuBtn()}>Menu</button>
+          <button type="button" className={styles.menuBtn} onClick={() => handleMenuBtn()}>
+            <span className={styles.menuBtn__text}>Menu</span>
+          </button>
         </div>
         <div className={classNames(styles.slideNaviContainer, { [styles.hidden]: clickCloseBtn })}>
           <span 

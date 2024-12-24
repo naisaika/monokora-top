@@ -35,7 +35,7 @@ export const Contact = () => {
             <Link href="https://www.factorx.jp" target="_blank" rel="noopener noreferrer" className={styles.link}>
                 <span>Factor Xトップへ</span>
                 <Image 
-                    src="/assets/img/icon/arrow.png" 
+                    src="https://www.factorx.jp/event/assets/img/icon/arrow.png" 
                     alt="矢印アイコン" 
                     width={20} 
                     height={20} 

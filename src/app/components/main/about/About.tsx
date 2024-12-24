@@ -11,7 +11,7 @@ export const About = () => {
         <div className={classNames(styles.wrapper, styles.aboutContainer)}>
             <div className={styles.imgContainer__top}>
                 <Image 
-                    src="/assets/img/about/about-img__top.png" 
+                    src="https://www.factorx.jp/event/assets/img/about/about-img__top.png" 
                     alt="イメージ画像（上）" 
                     width={417} 
                     height={315} 
@@ -25,7 +25,7 @@ export const About = () => {
             </h2>
             <div className={styles.aboutTextContainer}>
                 <Image 
-                    src="/assets/img/about/about-bg.png" 
+                    src="https://www.factorx.jp/event/assets/img/about/about-bg.png" 
                     alt="テキスト背景" 
                     width={892} 
                     height={744} 
@@ -33,7 +33,7 @@ export const About = () => {
                     className={styles.aboutBg}
                 />                
                 <Image 
-                    src="/assets/img/about/about-bg2.png" 
+                    src="https://www.factorx.jp/event/assets/img/about/about-bg2.png" 
                     alt="テキスト背景" 
                     width={800} 
                     height={780} 
@@ -50,7 +50,7 @@ export const About = () => {
             </div>
             <div className={styles.imgContainer__bottom}>
                 <Image 
-                    src="/assets/img/about/about-img__bottom.png" 
+                    src="https://www.factorx.jp/event/assets/img/about/about-img__bottom.png" 
                     alt="イメージ画像（下）" 
                     width={417} 
                     height={315} 
