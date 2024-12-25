@@ -11,7 +11,7 @@ import { TopBtn } from '../../parts/topBtn/TopBtn';
 
 export const Top = () => {
   const { ref, inView } = useInView({
-    rootMargin: "0px",
+    rootMargin: "50px",
     triggerOnce: true
   });
 
@@ -59,7 +59,8 @@ export const Top = () => {
   }, []);
 
   useEffect(() => {
-    if (inView) {
+    if (inView || window.scrollY === 0 || window.innerHeight < 500) {
+      // `inView` またはページトップにスクロールされている場合、または画面が狭い場合に即時フェードイン
       if (isImmediateFade) {
         setFadeInClass(styles.fadeIn); // 即時フェードイン
       } else {

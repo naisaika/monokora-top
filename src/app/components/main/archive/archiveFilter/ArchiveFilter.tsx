@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import styles from './ArchiveFilter.module.scss'
 import { basicDataType } from "@/data/type/type";
 import { BASIC_DATA } from "@/data/constants/constants";
@@ -12,6 +12,7 @@ export const ArchiveFilter = () => {
     const [filteredData, setFilteredData] = useState(BASIC_DATA);
     const [selectedYear, setSelectedYear] = useState("");
     const [isDropdownOpen, setDropdownOpen] = useState(false);
+    const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (selectedYear) {
@@ -24,6 +25,21 @@ export const ArchiveFilter = () => {
       setFilteredData(BASIC_DATA);
     }
   }, [selectedYear]);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
 
   const toggleDropdown = () => {
     setDropdownOpen(!isDropdownOpen);
@@ -44,13 +60,15 @@ export const ArchiveFilter = () => {
 
   return (
     <div className={styles.filterSection}>
-      <div  className={`${styles.filterContainer} ${isDropdownOpen ? styles.open : ""}`}>
+      <div className={`${styles.filterContainer} ${isDropdownOpen ? styles.open : ""}`} ref={dropdownRef}>
         <button type="button" onClick={() => toggleDropdown()} className={styles.filterYear}>
           {selectedYear ? `${selectedYear}年` : "閲覧したい年を選択"}
         </button>
         <ul className={styles.dropdownMenu}>
           <li onClick={() => handleClickYear("")} className={styles.dropdownMenu__item}>すべて選択</li>
           <li onClick={() => handleClickYear("2024")} className={styles.dropdownMenu__item}>2024年</li>
+          {/* <li onClick={() => handleClickYear("2025")} className={styles.dropdownMenu__item}>2025年</li>
+          <li onClick={() => handleClickYear("2026")} className={styles.dropdownMenu__item}>2026年</li> */}
           {/* 追加する場合はここに年を記載 */}
         </ul>
       </div>

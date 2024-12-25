@@ -13,49 +13,51 @@ export const LoadingAnime = () => {
     const canvas = canvasRef.current;
 
     if (!canvas) return;
-
+    document.fonts.ready.then(() => {
     const scene = new THREE.Scene();
     const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2)); // デバイスピクセル比に対応
     renderer.setSize(window.innerWidth, window.innerHeight);
     renderer.setClearColor(0x24456b);
 
     // 立方体の作成
     const createRoundedCube = (text: string, textColor: string) => {
-        const geometry = new RoundedBoxGeometry(1, 1, 1, 8, 0.15);
-    
-        const materials = ['front', 'back', 'top', 'bottom', 'left', 'right']
-            .map(() => {
-                const canvas = document.createElement('canvas');
-                const resolution = 512; // 高解像度
-                canvas.width = resolution;
-                canvas.height = resolution;
-                const ctx = canvas.getContext('2d');
-                if (!ctx) return null;
-    
-                ctx.scale(resolution / 256, resolution / 256); 
-    
-                // 背景
-                ctx.fillStyle = '#ffffff';
-                ctx.fillRect(0, 0, 256, 256);
 
-                // 影の設定
-                ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
-                ctx.shadowOffsetX = 15;
-                ctx.shadowOffsetY = 15;
-    
-                // 文字
-                ctx.fillStyle = textColor;
-                ctx.font = '900 180px Noto Sans JP';
-                ctx.textAlign = 'center';
-                ctx.textBaseline = 'middle';
-                ctx.fillText(text, 128, 140);
-    
-                return new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(canvas) });
-            })
-            .filter((material): material is THREE.MeshBasicMaterial => material !== null);
-    
+      const geometry = new RoundedBoxGeometry(1, 1, 1, 8, 0.15);
+  
+      const materials = ['front', 'back', 'top', 'bottom', 'left', 'right']
+          .map(() => {
+              const canvas = document.createElement('canvas');
+              const resolution = 512; // 高解像度
+              canvas.width = resolution;
+              canvas.height = resolution;
+              const ctx = canvas.getContext('2d');
+              if (!ctx) return null;
+  
+              ctx.scale(resolution / 256, resolution / 256); 
+  
+              // 背景
+              ctx.fillStyle = '#ffffff';
+              ctx.fillRect(0, 0, 256, 256);
+
+              // 影の設定
+              ctx.shadowColor = 'rgba(0, 0, 0, 0.9)';
+              ctx.shadowOffsetX = 15;
+              ctx.shadowOffsetY = 15;
+  
+              // 文字
+              ctx.fillStyle = textColor;
+              ctx.font = '900 180px Noto Sans JP';
+              ctx.textAlign = 'center';
+              ctx.textBaseline = 'middle';
+              ctx.fillText(text, 128, 140);
+  
+              return new THREE.MeshBasicMaterial({ map: new THREE.CanvasTexture(canvas) });
+          })
+          .filter((material): material is THREE.MeshBasicMaterial => material !== null);
+  
         return new THREE.Mesh(geometry, materials);
     };
     
@@ -137,6 +139,7 @@ export const LoadingAnime = () => {
       window.removeEventListener('resize', handleResize);
       renderer.dispose();
     };
+  });
   }, []);
 
   useEffect(() => {
@@ -148,7 +151,7 @@ export const LoadingAnime = () => {
             path.style.transition = "stroke-dashoffset 1.5s ease-in-out";
             path.style.strokeDashoffset = "0";
             setTimeout(() => {
-                path.style.fill = "white"; // 塗りつぶしを明示的に適用
+                path.style.fill = "white";
             }, 1000); // アニメーション終了後に塗りつぶしを適用
         }, 3000); // アニメーション開始の遅延
     });
