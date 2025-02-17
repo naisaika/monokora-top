@@ -71,7 +71,7 @@ export const LoadingAnime = () => {
         const col = i % 2;
 
         cube.position.x = col * 1.3 - 0.5;
-        cube.position.y = -row * 1.3 + 1.2;
+        cube.position.y = -row * 1.3 + 0.9;
 
         scene.add(cube);
         cubes.push(cube);
